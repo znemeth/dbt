@@ -1,0 +1,21 @@
+
+version: 2
+
+sources:
+  - name: source
+    database: sample_db
+    schema: public
+    tables:
+      - name: country
+        description: '{{ doc("desc_table_src__country") }}'
+
+models:
+    - name: stg_country
+      description: '{{ doc("desc_table_stg__country") }}'
+      columns:
+          - name: id
+            tests:
+                - unique
+                - not_null
+          - name: country
+
